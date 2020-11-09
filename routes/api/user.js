@@ -25,7 +25,7 @@ async (req, res) => {
     return res.status(400).json({errors: errors.array()})
   }
 
-  const { email, name,password } = req.body
+  const { email, name, password } = req.body
 
   try {
     // See if user exists
@@ -70,7 +70,6 @@ async (req, res) => {
         if (err) throw err
         res.json({ token })
     })
-
   } catch (err) {
     console.error(err)
     res.status(500).send('Server error')

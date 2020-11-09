@@ -14,7 +14,7 @@ const User = require('../../models/User')
 //@access Public
 router.get('/', auth, async (req, res) => {
   try {
-    const user = await (await User.findById(req.user.id).select('-password')) // without password
+    const user = await User.findById(req.user.id).select('-password') // without password
 
     res.json(user)
   } catch (err) {
